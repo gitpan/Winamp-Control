@@ -1,0 +1,48 @@
+Winamp/Control version 0.01
+===========================
+
+Winamp::Control is a perl module for controlling winamp/shoutcast (www.winamp.com) over the network.
+It requires the httpQ winamp-plugin written by Kosta Arvanitis (see prerequisites) installed on the
+computer playing the music (http gateway to controlling winamp). Perl clients doesn't need it,
+because the clients are communicating via http and just give the commands.
+
+An example script to control winamp/shoutcast is included (winampctl).
+
+PREREQUISITES
+
+You will need the winamp-plugin "httpQ" (Written by Kosta Arvanitis) installed on the machine playing
+the music via winamp/shoutcast. You may find it via searching at the winamp headquarter:
+
+	http://www.winamp.com
+
+Or directly from the author (for the recent version):
+
+	http://www.csc.uvic.ca/~karvanit/
+	http://www.csc.uvic.ca/~karvanit/downloads/httpq19.exe
+
+DEPENDENCIES
+
+	Class::Maker
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+	or via CPAN shell (which normally takes care about the dependencies):
+
+   perl -MCPAN -e "install Winamp::Control"
+
+AUTHOR
+
+Murat Ünalan, muenalan@cpan.org
+
+COPYRIGHT AND LICENCE
+
+Copyright (c) 2002 Murat Uenalan. All rights reserved.
+Note: This program is free software; you can redistribute
+it and/or modify it under the same terms as Perl itself.
