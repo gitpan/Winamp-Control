@@ -6,7 +6,7 @@
 # Note: This program is free software; you can redistribute
 # it and/or modify it under the same terms as Perl itself.
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use warnings; use strict;
 
@@ -46,7 +46,7 @@ use Winamp::Control;
 
 		my $com = shift @ARGV;
 
-		println "Returned ($com): " , $winamp->$com( ) if $com;
+		print "Returned ($com): " , $winamp->$com( ), "\n" if $com;
 	}
 	else
 	{

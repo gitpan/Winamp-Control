@@ -18,11 +18,11 @@ use URI;
 
 use vars qw($AUTOLOAD $VERSION);
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 Class::Maker::class
 {
-	attribute =>
+	public =>
 	{
 		string => [qw(host)],
 
@@ -461,8 +461,7 @@ the music via winamp. You may find it via searching at the winamp headquarter:
 
 Or directly from the author:
 
-	http://www.csc.uvic.ca/~karvanit/
-	http://www.csc.uvic.ca/~karvanit/downloads/httpq19.exe
+	http://www.kostaa.com/winamp/
 
 =head1 AUTHOR
 

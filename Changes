@@ -4,3 +4,7 @@ Revision history for Perl extension Winamp::Control.
 	- original version; created by h2xs 1.21 with options
 		-A -X -a -n Winamp::Control
 
+0.02  22.06.2002 19:21
+	- fixed a bug in winampctl.pl
+
+	- httpq download url changed

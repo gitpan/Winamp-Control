@@ -16,14 +16,13 @@ ok(1); # If we made it this far, we're ok.
 print <<ENDE;
 
 You will need the winamp-plugin "httpQ" (Written by Kosta Arvanitis) installed on the machine playing
-the music via winamp/shoutcast. You may find it via searching at the winamp headquarter:
+the music via winamp/shoutcast. You may find it at:
+
+	http://www.kostaa.com/winamp/
+
+or otherwise search the plugin-section at
 
 	http://www.winamp.com
-
-Or directly from the author (for the recent version):
-
-	http://www.csc.uvic.ca/~karvanit/
-	http://www.csc.uvic.ca/~karvanit/downloads/httpq19.exe
 
 After installation you have to activate httpQ through the winamp preferences dialog. In the
 "Plug-ins/General Purpose" section, select httpQ and press the configure button at the bottom.
@@ -53,10 +52,12 @@ ENDE
 
 print <<ENDE;
 
-TEST FAILED:
+TEST FAILED !
 
-	1) If winamp was started.
-	2) If the httpQ-plugin was started (explicitly started httpQ with the 'start'-button).
+You should verify:
+
+	1) Winamp was started.
+	2) The httpQ-plugin was started (explicitly started httpQ with the 'start'-button or automatic).
 	3) If you have entered the correct host and port.
 
 ENDE
