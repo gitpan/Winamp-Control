@@ -18,13 +18,13 @@ use URI;
 
 use vars qw($AUTOLOAD $VERSION);
 
-$VERSION = '0.02';
+our $VERSION = '0.2.1';
 
 Class::Maker::class
 {
 	public =>
 	{
-		string => [qw(host)],
+		string => [qw(host passwd)],
 
 		integer => [qw(port)],
 	},
@@ -43,7 +43,11 @@ sub AUTOLOAD : method
 {
 	my $this = shift || return undef;
 
-	my @args = @_;
+	my @args;
+	
+	@args = ( p => $this->passwd ) if defined $this->passwd;
+	
+	push @args, @_;
 
 	my $func = $AUTOLOAD;
 
@@ -60,8 +64,8 @@ sub AUTOLOAD : method
 	    $uri->port( $this->port );
 
 		$uri->path( $func );
-
-	    $uri->query_form( p => 'pass', @args );
+		
+	    $uri->query_form( @args );
 
     	#$uri->userinfo( 'user:pw' );
 
@@ -105,13 +109,38 @@ Winamp::Control - control winamp (over the network)
 
 =head1 DESCRIPTION
 
-B<Winamp::Control> is a perl module for controlling Winamp (www.winamp.com) over the network or
-locally. It requires the httpQ winamp-plugin written by Kosta Arvanitis (see prerequisites)
+B<Winamp::Control> is a perl module for controlling Winamp (www.winamp.com) over a network or
+local. It requires the httpQ winamp-plugin written by Kosta Arvanitis (see prerequisites)
 installed on the computer playing the music (It is called "server" and will receive the commands).
 Perl clients doesn't need it, because the clients are communicating via http (and they are not restricted
 to any operating-system).
 
 =head2 METHODS (modified after the httpQ documentation)
+
+=head3 Constructor parameters (new)
+
+=over 4
+
+=item host (default: C<127.0.0.1>)
+
+The host address where the httpQ plugin and C<Winamp> is running.
+
+=item port (default: C<4800>)
+
+The httpQ plugin port.
+
+=item passwd (default: none)
+
+A plain text password to httpQ (required if set via the httpQ preferences).
+
+=back
+
+[Note] The parameters have also instance methods counterparts. So you may call
+them after construction like:
+
+ $winamp->host( $host );
+ $winamp->port( $port );
+ $winamp->passwd( $passwd );
 
 =head3 prev, play, pause, stop, next
 

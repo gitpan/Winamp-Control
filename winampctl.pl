@@ -6,7 +6,7 @@
 # Note: This program is free software; you can redistribute
 # it and/or modify it under the same terms as Perl itself.
 
-our $VERSION = '0.02';
+our $VERSION = '0.2.1';
 
 use warnings; use strict;
 
@@ -17,9 +17,9 @@ use Getopt::Long;
 
 use Pod::Usage;
 
-our %opts = ( host => 'localhost', port => 4800 );
+our %opts = ( host => 'localhost', port => 4800, passwd => undef );
 
-	GetOptions (\%opts, 'help|?', 'man', 'debug!', 'port=i', 'host=s' ) or pod2usage(2);
+	GetOptions (\%opts, 'help|?', 'man', 'debug!', 'port=i', 'host=s', 'passwd=s' ) or pod2usage(2);
 
 	pod2usage(1) if $opts{help};
 
@@ -32,7 +32,7 @@ our %opts = ( host => 'localhost', port => 4800 );
 
 use Winamp::Control;
 
-	my $winamp = Winamp::Control->new( host => $opts{host}, port => $opts{port} );
+	my $winamp = Winamp::Control->new( host => $opts{host}, port => $opts{port}, port => $opts{passwd} );
 
 	if( my $ver = $winamp->getversion )
 	{
@@ -86,6 +86,10 @@ Host running winamp/httpQ (default: localhost).
 =item B<-port>
 
 Port to connect to httpQ (default: 4800).
+
+=item B<-passwd>
+
+Plain text password for httpQ (default: none) if set in the httpQ preferences.
 
 =back
 
