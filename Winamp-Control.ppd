@@ -1,0 +1,13 @@
+<SOFTPKG NAME="Winamp-Control" VERSION="0,02,0,0">
+	<TITLE>Winamp-Control</TITLE>
+	<ABSTRACT>control winamp (over the network)</ABSTRACT>
+	<AUTHOR>Murat UEnalan &lt;murat.uenalan@gmx.de&gt;</AUTHOR>
+	<IMPLEMENTATION>
+		<DEPENDENCY NAME="Class-Maker" VERSION="0,0,0,0" />
+		<DEPENDENCY NAME="LWP-Simple" VERSION="0,0,0,0" />
+		<DEPENDENCY NAME="URI" VERSION="0,0,0,0" />
+		<OS NAME="MSWin32" />
+		<ARCHITECTURE NAME="MSWin32-x86-multi-thread" />
+		<CODEBASE HREF="" />
+	</IMPLEMENTATION>
+</SOFTPKG>
